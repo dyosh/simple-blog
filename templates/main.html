@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<style type="text/css">
+		.blog {
+			font-family: sans-serif;
+			width: 1100px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		.blog-subject {
+			float: left;
+			font-size: 35px;
+			font-weight: 500;
+		}
+		.blog-date {
+			float: right;
+			font-size: 15px;
+			padding-top: 20px;
+		}
+		.blog-text {
+			/*margin: 0 auto;*/
+		}
+		.header {
+			display: inline-block;
+			margin-bottom: 0px;
+			width: 1100px;
+		}
+	</style>
+
+	{% for blog in blogs %}
+		<div class="blog">
+			<div class="header">
+				<span class="blog-subject">{{blog.subject}}</span>
+				<span class="blog-date">{{blog.created.strftime("%b %d, %Y")}}</span>
+			</div>
+			<hr style="margin-top: 0px; background-color: black; height: 2px">
+			<pre class="blog-text">
+				{{blog.blog}}
+			</pre>
+		</div>
+	{% endfor %}
+
+{% endblock %}

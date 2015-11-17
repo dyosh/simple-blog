@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style type="text/css">
+	textarea {
+		width: 500px;
+		height: 300px;
+		font-size: 17px;
+		font-family: sans-serif;
+	}
+
+	.error {
+		color: red;
+	}
+	.post-area {
+		font-family: sans-serif;
+		width: 500px;
+		margin: 0 auto;
+		padding: 10px;
+	}
+	input[type=submit] {
+		font-size: 24px;
+	}
+
+</style>
+<div class="post-area">
+	<h3 style="margin-bottom: 0px">new post</h3>
+	<hr style="margin-top: 0px; height: 2px; background-color: black">
+	<form method="post">
+		<label>
+			<div>subject</div>
+			<input type="text" name="subject" value="{{subject}}">
+		</label>
+
+		<label>
+			<div>blog</div>
+			<textarea name="blog">{{blog}}</textarea>
+		</label>
+
+		<div class="error">{{error}}</div>
+		<input type="submit">
+	</form>
+</div>
+{% endblock %}
